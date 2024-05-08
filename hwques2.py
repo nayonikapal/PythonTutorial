@@ -24,17 +24,18 @@
 '''
 
 '''QUESTION 1'''
-# t1=(1,1,3,8,2,2,4,6,2,9)
-
-# for i in t1:
-# #     j=i
-#     d1={i:t1.count(i)}
-#     d1.append()
-# #     x=t1.count(i)
-# #     if j==i:
-# #        pass
-# #     print(i,":",x)
-#     print(d1)
+t1=(1,1,3,8,2,2,4,6,2,9)
+d1={}
+for i in t1:
+    if i in d1:
+        d1[i]+=1
+    # d1={i:t1.count(i)}
+    # d1.append()
+    # x=t1.count(i)
+    else:
+        d1[i]=1
+    # print(i,":",x)
+# print(d1)
 
 '''QUESTION 2'''
 t2=(4,5,2,6,3)
@@ -66,9 +67,20 @@ for x in tt3:
 # print(fl2)
 
 '''QUESTION 4'''
-for j in range(11):
-    for i in range(0,j-1):
-        if j>0:
-            print("*",end="\n")
-        else:
-            print(" ",end=" ")
+# # for j in range(11):
+# for j in range(10,0,-1):
+#     for i in range(10-j):    # if j>0:
+#         print(" ",end="")    # print("*",end="\n")
+#     for i in range(j-1):    # else:
+#         print("*",end="")    # print(" ",end=" ")
+#     print()
+'''QUESTION 5'''
+ol=[5, 6, [], 3, [], [], 9]
+fl=[]
+for i in ol:
+    # if i==[]:
+    #     ol.remove(i)
+        # print(ol)
+    if i!=[]:
+        fl.append(i)
+print(fl)  
