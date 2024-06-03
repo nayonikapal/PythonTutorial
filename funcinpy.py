@@ -31,8 +31,19 @@
 
 
 
-def my_function(*,x,y,z,):
-  print(x,y,z)
+# def my_function(*,x,y,z,):
+#   print(x,y,z)
+# # my_function(3,4,5)
 # my_function(3,4,5)
-my_function(3,4,5)
 
+
+import string
+ltrs = string.ascii_letters()
+# smltrs
+
+print(ltrs)
+
+# def data():
+#   return "data"
+
+# print(data)
