@@ -106,28 +106,30 @@ else:
 '''QUESTION 5'''
 bub=[1,4,7,9,34,23,67,45,9]
 
+
 '''QUESTION 6'''
 gn=int(input("Enter the number you would like to check: "))
 prm=True
-if gn<=0:
-    print("invalid input, try again")
-elif gn>0:
-    if gn==2:
-        prm=True
-    elif gn==3:
-        prm=True
-    elif gn==5:
-        prm=True
-    elif gn==7:
-        prm=True
-    elif gn%2==0:
-        prm=False
-    elif gn%3==0:
-        prm=False
-    elif gn%5==0:
-        prm=False
-    elif gn%7==0:
-        prm=False
+def prme():
+    if gn<=0:
+        print("invalid input, try again")
+    elif gn>0:
+        if gn==2:
+            prm=True
+        elif gn==3:
+            prm=True
+        elif gn==5:
+            prm=True
+        elif gn==7:
+            prm=True
+        elif gn%2==0:
+            prm=False
+        elif gn%3==0:
+            prm=False
+        elif gn%5==0:
+            prm=False
+        elif gn%7==0:
+            prm=False
     else:
         prm=True
 
