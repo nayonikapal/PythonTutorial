@@ -10,94 +10,159 @@
       and methods to change the color and check for red or green.'''
 
 '''QUESTION 1'''
-l=float(input("Enter the length: "))
-b=float(input("Enter the breadth: "))
-h=float(input("Enter the height: "))
 
-class Shape:
-    def __init__(self,l,b,h,r):
-        self.l=l
-        self.b=b
-        self.h=h
-        self.r=r
+# class Shape:
     
-    def area(self):
-        pass
+#     def area(self):
+#         pass
 
-    def peri(self):
-        pass
+#     def peri(self):
+#         pass
 
 
-class Rectangle(Shape):
+# class Rectangle(Shape):
 
-    def area(self):
-        print("Area of rectangle is")
-        return self.l*self.b
+#     def __init__(self,l,br):
+#         self.l=l
+#         self.br=br
+
+#     def area(self):
+#         print("Area of rectangle is")
+#         return self.l*self.br
     
-    def peri(self):
-        print("Perimeter of rectangle is")
-        return 2*(self.l+self.b)
+#     def peri(self):
+#         print("Perimeter of rectangle is")
+#         return 2*(self.l+self.br)
     
-class Circle(Shape):
+# class Circle(Shape):
+
+#     def __init__(self,r):
+#         self.r=r
     
-    r=float(input("Enter the radius: "))
-
-    def __init__(self,r):
-        self.r=r
+#     def area(self):
+#         print("Area of a circle is")
+#         return 3.14*self.r*self.r
     
-    def area(self):
-        print("Area of a circle is")
-        return 3.14*self.r*self.r
+#     def peri(self):
+#         print("Perimeter of a circle is")
+#         return 2*3.14*self.r
     
-    def peri(self):
-        print("Perimeter of a circle is")
-        return 2*3.14*self.r
+# class Triangle(Shape):
+
+#     def __init__(self,a,b,c,bt,h):
+#         self.a=a
+#         self.b=b
+#         self.c=c
+#         self.bt=bt
+#         self.h=h
+
+#     def area(self):
+#         print("Area of a triangle is")
+#         return 0.5*self.bt*self.h
     
-class Triangle(Shape):
-
-    a=float(input("Enter value of side 'a': "))
-    b=float(input("Enter value of side 'b': "))
-    c=float(input("Enter value of side 'c': "))
+#     def peri(self):
+#         print("Perimeter of a triangle is")
+#         return self.a+self.b+self.c
 
 
-    def __init__(self,a,b,c):
-        self.a=a
-        self.b=b
-        self.c=c
+# def main():
 
-    def area(self):
-        print("Area of a triangle is")
-        return 0.5*self.b*self.h
+#     print('''Calculate area and perimeter of rectangle, circle and triangle
+#                 Which shape?
+#                     1. Rectangle
+#                     2. Circle
+#                     3. Triangle
+#                     4. Exit''')
+
+#     i=int(input("->"))
+
+#     if i==1:
+#         l=float(input("Enter the length: "))
+#         br=float(input("Enter the breadth: "))
+
+#         shape=Rectangle(l,br)
+
+#     elif i==2:
+#         r=float(input("Enter the radius: "))
+
+#         shape=Circle(r)
+
+#     elif i==3:
+#         a=float(input("Enter value of side 'a': "))
+#         b=float(input("Enter value of side 'b': "))
+#         c=float(input("Enter value of side 'c': "))
+#         bt=float(input("Enter the base of the triangle: "))
+#         h=float(input("Enter the height of the triangle: "))
+
+#         shape=Triangle(a,b,c,bt,h)
+
+#     elif i==4:
+#         exit()
+
+#     else:
+#         print("Invalid input")
+
+#     print('''What would you like to calculate?
+#                 1. Area
+#                 2. Perimeter''')
     
-    def peri(self):
-        print("Perimeter of a triangle is")
-        return self.a+self.b+self.c
-    
-print('''Calculate area and perimeter of rectangle, circle and triangle
-            Which shape?
-                1. Rectangle
-                2. Circle
-                3. Triangle
-                4. Exit''')
+#     j=int(input("->"))
 
-i=int(input())
+#     if j==1:
+#         print(f"The area is: {shape.area()}")
 
-if i==1:
-    Rectangle(Shape(l,b,h,))
+#     if j==2:
+#         print(f"The perimeter is: {shape.peri()}")
 
-elif i==2:
-    Circle(Shape)
-
-elif i==3:
-    Triangle(Shape(l,b,h))
-
-elif i==4:
-    exit()
-
-else:
-    print("Invalid input")
+# if __name__ == "__main__":
+#     main()
 
 
 '''QUESTION 2'''
 
-# class Bank:
+
+
+class Bank:
+    ACCOUNTS=['Bank name','ID','Name','Branch']
+    BANKNAME=['HDFC']
+    IDNAME=[1]
+    NAME_ON_ACC=['Nayoinka']
+    BRANCH=['Dehradun']
+    BALANCE=[200.00]
+
+    def __init__(self,IDNAME,BANKNAME,NAME_ON_ACC,BRANCH,BALANCE):
+        self.idname=IDNAME
+        self.bankname=BANKNAME
+        self.nameonacc=NAME_ON_ACC
+        self.branch=BRANCH
+        self.balance=BALANCE
+
+    def addacc(self):
+        print("Enter the details of the account you wish to add")
+        self.idname=input("Enter a unique ID for your account: ")
+        if self.idname in IDNAME:
+            print("Already exists")
+            self.idname
+        else:
+            IDNAME.add()
+        self.nameonacc=input("Name on the account: ")
+        self.branch=input("Enter the branch of your bank: ")
+        self.balance=input("Enter the minimum deposit of Rs.200: ")
+        BALANCE.insert[self.balance,]
+
+    def removeacc(self):
+        pass
+
+    def withdraw(self):
+        pass
+
+    def deposit(self):
+        pass
+
+class Account:
+    
+    def bankname(self):
+        print("The Bank name is: ")
+        
+Bank(2,'SBI','Ram','Delhi',500)
+'''QUESTION 3'''
