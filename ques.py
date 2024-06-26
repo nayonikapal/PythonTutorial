@@ -120,49 +120,158 @@
 
 '''QUESTION 2'''
 
+def main():
+    print("THIS IS AN ACCOUNTING PROGRAM")
+    print("Choose the option given below\n      1.ADD ACCOUNT\n      2.REMOVE ACCOUNT\n      3.WITHDRAWAL\n      4.DEPOSIT\n      5.EXIT")
+    y=int(input("->"))
 
-
-class Bank:
-    ACCOUNTS=['Bank name','ID','Name','Branch']
-    BANKNAME=['HDFC']
-    IDNAME=[1]
-    NAME_ON_ACC=['Nayoinka']
-    BRANCH=['Dehradun']
-    BALANCE=[200.00]
-
-    def __init__(self,IDNAME,BANKNAME,NAME_ON_ACC,BRANCH,BALANCE):
-        self.idname=IDNAME
-        self.bankname=BANKNAME
-        self.nameonacc=NAME_ON_ACC
-        self.branch=BRANCH
-        self.balance=BALANCE
-
-    def addacc(self):
-        print("Enter the details of the account you wish to add")
-        self.idname=input("Enter a unique ID for your account: ")
-        if self.idname in IDNAME:
-            print("Already exists")
-            self.idname
-        else:
-            IDNAME.add()
-        self.nameonacc=input("Name on the account: ")
-        self.branch=input("Enter the branch of your bank: ")
-        self.balance=input("Enter the minimum deposit of Rs.200: ")
-        BALANCE.insert[self.balance,]
-
-    def removeacc(self):
-        pass
-
-    def withdraw(self):
-        pass
-
-    def deposit(self):
-        pass
+    if y==1:
+        l.addacc()
+    elif y==2:
+        l.removeacc()
+    elif y==3:
+        l.withdraw()
+    elif y==4:
+        l.deposit()
+    elif y==5:
+        exit()
+    else:
+        print("invalid input, try again")
+        main()
 
 class Account:
+    ACCOUNTS={'Bank name':"HDFC",'Name':"Nayonika",'Branch':"Dehradun",'Balance':200.00}
+    IDNAME={'ID':1,'Account':ACCOUNTS}
+    BANKNAME=ACCOUNTS['Bank name']
+    NAME_ON_ACC=ACCOUNTS['Name']
+    BRANCH=ACCOUNTS['Branch']
+    BALANCE=ACCOUNTS['Balance']
+    LIST_OF_ACC=[ACCOUNTS]
     
-    def bankname(self):
-        print("The Bank name is: ")
-        
-Bank(2,'SBI','Ram','Delhi',500)
+    def __init__(self,ACCOUNTS,BANKNAME,NAME_ON_ACC,BRANCH,BALANCE,LIST_OF_ACC):
+        self.accounts=ACCOUNTS
+        self.bankname=BANKNAME
+        self.name_on_acc=NAME_ON_ACC
+        self.branch=BRANCH
+        self.balance=BALANCE
+        self.list_of_acc=LIST_OF_ACC
+
+    def listofacc(self):
+        print("The registered lists are: ",self.list_of_acc)   
+
+    def bank_name(self):
+        print("The Bank name is: ",self.bankname)
+
+    def nameacc(self):
+        print("The name of the account is: ",self.name_on_acc)
+
+    def acc_branch(self):
+        print("The branch of the account is: ",self.branch)
+
+    def acc_bal(self):
+        print("The balance is: ",self.balance)
+
+class Bank(Account):
+    ACCOUNTS={'Bank name':"HDFC",'Name':"Nayonika",'Branch':"Dehradun",'Balance':200.00}
+    IDNAME={'ID':1,'Account':ACCOUNTS}
+    BANKNAME=ACCOUNTS['Bank name']
+    NAME_ON_ACC=ACCOUNTS['Name']
+    BRANCH=ACCOUNTS['Branch']
+    BALANCE=ACCOUNTS['Balance']
+    LIST_OF_ACC=[ACCOUNTS]
+
+    def __init__(self,IDNAME,BANKNAME,NAME_ON_ACC,BRANCH,BALANCE,LIST_OF_ACC,ACCOUNTS):
+        self.idname=IDNAME
+        self.bankname=BANKNAME
+        self.name_on_acc=NAME_ON_ACC
+        self.branch=BRANCH
+        self.balance=BALANCE
+        self.list_of_acc=LIST_OF_ACC
+        self.accounts=ACCOUNTS
+
+    def addacc(self):
+        print("ADD ACCOUNT")
+        print("Enter the details of the account you wish to add")
+
+        id=input("Enter a unique ID for your account: ")
+        if id in self.idname:
+            print("Already exists, try again")
+        else:
+            self.idname.add()
+
+        acc_name=input("Enter account name: ")
+        self.list_of_acc.add(acc_name)
+
+        nameonacc=input("Name on the account: ")
+        self.name_on_acc.add(nameonacc)
+
+        branch=input("Enter the branch of your bank: ")
+        self.branch.add(branch)
+
+        balance=input("Enter the minimum deposit of Rs.200: ")
+        self.balance.add(balance)
+
+    def removeacc(self):
+        print("REMOVE ACCOUNT")
+        d_acc=input("Enter the Account name you wish to delete: ")
+        if d_acc not in self.list_of_acc:
+            print("This account does not exist")
+        else:
+            del d_acc
+
+    def withdraw(self):
+        print("WITHDRAWAL")
+        acc=input("Enter the account name from which you would like to withdraw money: ")
+        if acc not in self.list_of_acc:
+            print("This is account does not exist")
+
+        acc=self.accounts
+        print("Current balance",acc(self.balance))
+        amount=float(input("Enter the amount you wish to withdraw"))
+        print("Now, current balance is: ",self.balance-amount)
+
+    def deposit(self):
+        print("DEPOSIT")
+        acc=input("Enter the account name from which you would like to withdraw money: ")
+        if acc not in self.list_of_acc:
+            print("This is account does not exist")
+
+        acc=self.accounts
+        print("Current balance",acc(self.balance))
+        dep=float(input("Enter the amount you wish to deposit"))
+        print("Now, current balance is: ",self.balance+dep)
+
+l=Bank({'Bank name':"HDFC",'Name':"Nayonika",'Branch':"Dehradun",'Balance':200.00})
+
+if __name__=="__main__":
+    main()      
+
 '''QUESTION 3'''
+# import datetime
+
+# class TrafficLight:
+#     stop_clr="RED"
+#     go_clr="GREEN"
+#     wait_clr="YELLOW"
+#     stop_time=60
+#     go_time=30
+#     wait_time=5
+
+#     def __init__(self,stop_clr,go_clr,wait_clr,stop_time,go_time,wait_time):
+#         self.stopclr=stop_clr
+#         self.goclr=go_clr
+#         self.waitclr=wait_clr
+#         self.stoptime=stop_time
+#         self.gotime=go_time
+#         self.waittime=wait_time
+
+#     def stop(self,stop_clr,stop_time):
+#         print("STOP",self.stopclr,self.stoptime)
+
+#     def go(self,go_clr,go_time):
+#         print("GO",self.goclr,self.gotime)
+
+#     def wait(self,wait_clr,wait_time):
+#         print("WAIT",self.waitclr,self.waittime)
+
+# def main():
