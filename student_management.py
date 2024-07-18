@@ -5,8 +5,8 @@ REGISTERED_STUDENT={'Name':"",
                     'Mobile':None,
                     'Address':"",
                     'Class':None,
-                    'Subjects':{},                              #work on this
-                    'Obtained_marks':None}
+                    'Subjects':[],                            
+                    'Obtained_marks':{}}
 LIST_OF_STUDENT=[REGISTERED_STUDENT]
 
 SUBJECT_LIST={'Subject Name':"",
@@ -45,13 +45,16 @@ class Student:
             print("Invalid class number")
             stuclass = int(input("Enter the class (1-12): "))
 
-        stusub=input("Enter the subject: ")
+        stusub=input("Enter the subjects separated by commas: ")
+        sub_list=[]
+        for i in stusub.split(','):
+            sub_list.append(i.strip())
         
         REGISTERED_STUDENT={'Name':stuname,
                             'Mobile':stumob,
                             'Address':stuadd,
                             'Class':stuclass,
-                            'Subject':stusub,
+                            'Subjects':sub_list,
                             'Created_at':TIME,
                             'Updated_at':TIME}
         LIST_OF_STUDENT.append(REGISTERED_STUDENT)
@@ -74,8 +77,7 @@ class Student:
                         3.Address
                         4.Class
                         5.Subject
-                        6.Obtained Marks
-                        7.Exit
+                        6.Exit
                         Choice->'''))
             
             if ust==1:
@@ -108,10 +110,11 @@ class Student:
                 print("Here is the updated class:",stu)
 
             elif ust==5:
-                upsub=input("Enter the updated subject: ")
-                stu['Subject']=upclass
+                upsub=input("Enter the updated subjects separated by commas: ")
+                subs=[i.strip() for i in upsub.split(',')]
+                stu['Subjects']=subs
                 stu['Updated_at']=datetime.datetime.now()
-                print("Here is the updated class:",stu)
+                print("Here is the updated subject:",stu)
 
             elif ust==6:
                 main()
