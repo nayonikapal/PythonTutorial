@@ -18,9 +18,9 @@ MARK_LIST={'Subject Name':"",
            'Obtained_marks':None}
 LIST_OF_MARK=[MARK_LIST]
 
-'''STUDENT CLASS'''
-
 class Student:
+
+    '''STUDENT CLASS'''
     
     def view_stu(self):
         print("This the list of registered students")
@@ -138,9 +138,9 @@ class Student:
             print("Invalid number")
         main()
 
-'''SUBJECT CLASS'''
-
 class Subject(Student):
+
+    '''SUBJECT CLASS'''
     
     def view_sub(self):
         print("This the list of existing subjects")
@@ -214,9 +214,9 @@ class Subject(Student):
             print("Invalid number")
         main()
 
-'''MARKS CLASS'''
-
 class Marks(Subject):
+
+    '''MARKS CLASS'''
      
     def view_mark(self):
         print("This the list of marks")
