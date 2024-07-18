@@ -1,31 +1,30 @@
 import datetime
 
-t=datetime.datetime.now()
-reg_stu={'Name':"Ram",
-         'Mobile':5546384563,
-         'Address':"Jaipur",
-         'Class':11,
-         'Subject':"Arts",
-         'Obtained_marks':75}
-los=[reg_stu]
+TIME=datetime.datetime.now()
+REGISTERED_STUDENT={'Name':"",
+                    'Mobile':None,
+                    'Address':"",
+                    'Class':None,
+                    'Subjects':{},                              #work on this
+                    'Obtained_marks':None}
+LIST_OF_STUDENT=[REGISTERED_STUDENT]
 
-subl={'Subject Name':"CompSci",
-      'Max_marks':100}
-losub=[subl]
+SUBJECT_LIST={'Subject Name':"",
+              'Max_marks':None}
+LIST_OF_SUBJECT=[SUBJECT_LIST]
 
-markl={'Subject Name':"Arts",
-       'Max_marks':100,
-       'Obtained_marks':50}
-lomark=[markl]
+MARK_LIST={'Subject Name':"",
+           'Max_marks':None,
+           'Obtained_marks':None}
+LIST_OF_MARK=[MARK_LIST]
 
 '''STUDENT CLASS'''
 
 class Student:
-    print("This is the student registry")
     
     def view_stu(self):
         print("This the list of registered students")
-        for i in los:
+        for i in LIST_OF_STUDENT:
             print (i)
         main()
 
@@ -48,25 +47,25 @@ class Student:
 
         stusub=input("Enter the subject: ")
         
-        reg_stu={'Name':stuname,
-                 'Mobile':stumob,
-                 'Address':stuadd,
-                 'Class':stuclass,
-                 'Subject':stusub,
-                 'Created_at':t,
-                 'Updated_at':t}
-        los.append(reg_stu)
+        REGISTERED_STUDENT={'Name':stuname,
+                            'Mobile':stumob,
+                            'Address':stuadd,
+                            'Class':stuclass,
+                            'Subject':stusub,
+                            'Created_at':TIME,
+                            'Updated_at':TIME}
+        LIST_OF_STUDENT.append(REGISTERED_STUDENT)
         main()
         
     def update_stu(self):
         print("Update the entry of a registered student")
-        for i in range(len(los)):
-            print(f"{i}:{los[i]}")
+        for i in range(len(LIST_OF_STUDENT)):
+            print(f"{i}:{LIST_OF_STUDENT[i]}")
 
         stu_num=int(input("Enter the number associated with the student: "))
         
-        if 0 <= stu_num <len(los):
-            stu=los[stu_num]
+        if 0 <= stu_num <len(LIST_OF_STUDENT):
+            stu=LIST_OF_STUDENT[stu_num]
             print(f"Selected student: {stu}")
 
             ust=int(input('''What would you like to update?
@@ -103,7 +102,7 @@ class Student:
                 print("Here is the updated address:",stu)
 
             elif ust==4:
-                upclass=int(input("Enter the updated class (1-12): "))      #update class input
+                upclass=int(input("Enter the updated class (1-12): "))      
                 stu['Class']=upclass
                 stu['Updated_at']=datetime.datetime.now()
                 print("Here is the updated class:",stu)
@@ -126,27 +125,26 @@ class Student:
 
     def delete_stu(self):
         print("Here are the number of the students that can be deleted")
-        for i in range(len(los)):
-            print(f"{i}:{los[i]}")
+        for i in range(len(LIST_OF_STUDENT)):
+            print(f"{i}:{LIST_OF_STUDENT[i]}")
 
         dstu=int(input("Enter the number of the student which you would like to delete: "))
 
-        if 0 <= dstu <len(los):
-            print(f"Deleted student record: {los[dstu]}")
-            del los[dstu]
+        if 0 <= dstu <len(LIST_OF_STUDENT):
+            print(f"Deleted student record: {LIST_OF_STUDENT[dstu]}")
+            del LIST_OF_STUDENT[dstu]
             print("Student record deleted successfully")
         else:
             print("Invalid number")
-        # main()
+        main()
 
 '''SUBJECT CLASS'''
 
 class Subject(Student):
-    print("This is the subject registry")
-
+    
     def view_sub(self):
         print("This the list of existing subjects")
-        for i in los:
+        for i in LIST_OF_SUBJECT:
             print (i)
         main()
 
@@ -157,20 +155,20 @@ class Subject(Student):
 
         subl={'Subject Name':subname,
               'Max_marks':submaxmark,
-              'Created_at':t,
-              'Updated_at':t}
-        losub.append(subl)
+              'Created_at':TIME,
+              'Updated_at':TIME}
+        LIST_OF_SUBJECT.append(subl)
         main()
         
     def update_sub(self):
         print("Update the entry of a subject")
-        for i in range(len(losub)):
-            print(f"{i}:{losub[i]}")
+        for i in range(len(LIST_OF_SUBJECT)):
+            print(f"{i}:{LIST_OF_SUBJECT[i]}")
 
         sub_num=int(input("Enter the number associated with the subject: "))
 
-        if 0<= sub_num <len(losub):
-            sub=losub[sub_num]
+        if 0<= sub_num <len(LIST_OF_SUBJECT):
+            sub=LIST_OF_SUBJECT[sub_num]
             print(f"Selected subject: {sub}")
 
             usub=int(input('''What would you like to update?
@@ -203,14 +201,14 @@ class Subject(Student):
 
     def delete_sub(self):
         print("Here is the list of subjects that can be deleted")
-        for i in range(len(losub)):
-            print(f"{i}:{losub[i]}")
+        for i in range(len(LIST_OF_SUBJECT)):
+            print(f"{i}:{LIST_OF_SUBJECT[i]}")
 
         dsub=int(input("Enter the number associated with the subject you wish to delete: "))
 
-        if 0 <= dsub <len(losub):
-            print(f"Deleted subject: {losub[dsub]}")
-            del losub[dsub]
+        if 0 <= dsub <len(LIST_OF_SUBJECT):
+            print(f"Deleted subject: {LIST_OF_SUBJECT[dsub]}")
+            del LIST_OF_SUBJECT[dsub]
             print("Subject deleted successfully")
         else:
             print("Invalid number")
@@ -218,12 +216,11 @@ class Subject(Student):
 
 '''MARKS CLASS'''
 
-class Marks(Student):
-    print("This is the marks registry")
-    
+class Marks(Subject):
+     
     def view_mark(self):
         print("This the list of marks")
-        for i in los:
+        for i in LIST_OF_MARK:
             print (i)
         main()
 
@@ -236,20 +233,20 @@ class Marks(Student):
         subl={'Subject Name':msubname,
               'Max_marks':maxmark,
               'Obtained_marks':markobt,
-              'Created_at':t,
-              'Updated_at':t}
-        lomark.append(markl)
+              'Created_at':TIME,
+              'Updated_at':TIME}
+        LIST_OF_MARK.append(MARK_LIST)
         main()
         
     def update_mark(self):
         print("Update the entry of marks")
-        for i in range(len(losub)):
-            print(f"{i}:{losub[i]}")
+        for i in range(len(LIST_OF_MARK)):
+            print(f"{i}:{LIST_OF_MARK[i]}")
 
         mark_num=int(input("Enter the number associated with the subject: "))
 
-        if 0<= mark_num <len(lomark):
-            marks=lomark[mark_num]
+        if 0<= mark_num <len(LIST_OF_MARK):
+            marks=LIST_OF_MARK[mark_num]
             print(f"Selected subject: {marks}")
 
             umark=int(input('''What would you like to update?
@@ -273,7 +270,7 @@ class Marks(Student):
 
             elif umark==3:
                 upobmark=int(input("Enter the updated Obtained marks: "))
-                marks['Max_marks']=upobmark
+                marks['Obtained_marks']=upobmark
                 marks['Updated_at']=datetime.datetime.now()
                 print("Here is the updated subject name:",marks)
             
@@ -289,14 +286,14 @@ class Marks(Student):
 
     def delete_mark(self):
         print("Here is the list of marks that can be deleted")
-        for i in range(len(lomark)):
-            print(f"{i}:{lomark[i]}")
+        for i in range(len(LIST_OF_MARK)):
+            print(f"{i}:{LIST_OF_MARK[i]}")
 
         dmark=int(input("Enter the number associated with the subject marks you wish to delete: "))
 
-        if 0 <= dmark <len(lomark):
-            print(f"Deleted marks: {losub[dmark]}")
-            del losub[dmark]
+        if 0 <= dmark <len(LIST_OF_MARK):
+            print(f"Deleted marks: {LIST_OF_MARK[dmark]}")
+            del LIST_OF_MARK[dmark]
             print("Marks deleted successfully")
         else:
             print("Invalid number")
