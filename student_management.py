@@ -25,7 +25,7 @@ class Student:
     def view_stu(self):
         print("This the list of registered students")
         for i in LIST_OF_STUDENT:
-            print (i)
+            print(i)
         main()
 
     def create_stu(self):
@@ -49,12 +49,18 @@ class Student:
         sub_list=[]
         for i in stusub.split(','):
             sub_list.append(i.strip())
+
+        obt_mark={}
+        for i in sub_list:
+            omark=int(input(f"Enter the marks obtained in {i}: "))
+            obt_mark[i]=omark
         
         REGISTERED_STUDENT={'Name':stuname,
                             'Mobile':stumob,
                             'Address':stuadd,
                             'Class':stuclass,
                             'Subjects':sub_list,
+                            'Obtained_marks':obt_mark,
                             'Created_at':TIME,
                             'Updated_at':TIME}
         LIST_OF_STUDENT.append(REGISTERED_STUDENT)
@@ -77,7 +83,8 @@ class Student:
                         3.Address
                         4.Class
                         5.Subject
-                        6.Exit
+                        6.Marks
+                        7.Exit
                         Choice->'''))
             
             if ust==1:
@@ -117,6 +124,11 @@ class Student:
                 print("Here is the updated subject:",stu)
 
             elif ust==6:
+                for i in stu['Subjects']:
+                    newomark=int(input(f"Enter the updated marks for {i}: "))
+                    stu['Obtained_marks'][i]=newomark
+
+            elif ust==7:
                 main()
 
             else:
@@ -148,7 +160,7 @@ class Subject(Student):
     def view_sub(self):
         print("This the list of existing subjects")
         for i in LIST_OF_SUBJECT:
-            print (i)
+            print(i)
         main()
 
     def create_sub(self):
@@ -224,21 +236,21 @@ class Marks(Subject):
     def view_mark(self):
         print("This the list of marks")
         for i in LIST_OF_MARK:
-            print (i)
+            print(i)
         main()
 
     def create_mark(self):
         print("Enter the details of the marks")
         msubname=input("Enter the name of the subject: ")
         maxmark=int(input("Enter the maximum marks: "))
-        markobt=int(input("Enter the maximum marks obtained: "))
+        markobt=int(input("Enter the marks obtained: "))
 
         subl={'Subject Name':msubname,
               'Max_marks':maxmark,
               'Obtained_marks':markobt,
               'Created_at':TIME,
               'Updated_at':TIME}
-        LIST_OF_MARK.append(MARK_LIST)
+        LIST_OF_MARK.append(subl)
         main()
         
     def update_mark(self):
